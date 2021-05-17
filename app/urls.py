@@ -3,5 +3,5 @@ from .views import *
 
 urlpatterns = [
     path('', encode),
-    path('<str:code>/', decode),
+    path('decode/<str:code>/', decode, name='decode'),
 ]

@@ -26,7 +26,7 @@ def encode(request):
                short_url += string[i]
     form = UrlForm()
     print(short_url)
-    if not short_url:
+    if short_url:
         context = {
             'form':form,
             'short_url':short_url,

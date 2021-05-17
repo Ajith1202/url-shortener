@@ -9,6 +9,11 @@
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Get Shortened URL">
-    </form> 
+    </form>
+    <h3>The shortened url is : {{ short_url }}</h3>
+    
+    {% if short_url %}
+    	<a href="{% url 'decode' short_url %}">Click here</a>
+    {% endif %} 
 </body>
 </html>
