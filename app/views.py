@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Url
 from .forms import UrlForm
+import collections
 
 def encode(request):
 
@@ -16,10 +17,10 @@ def encode(request):
 
            base_ten = obj.id
            short_url = ""
-           base_sixtytwo = []
+           base_sixtytwo = collections.deque()
 
            while base_ten:
-               base_sixtytwo.insert(0, base_ten % 62)
+               base_sixtytwo.appendleft(base_ten % 62)
                base_ten = base_ten // 62
 
            for i in base_sixtytwo:
